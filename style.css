@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&subset=cyrillic,cyrillic-ext');
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, sans-serif;
+    background-image: url("image/fon.jpg");
+}
+/*Выравнивание по середине*/
+.wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: .8;
+}
+
+.wrapper{
+    display: flex;
+    height: 10vh;
+    justify-content: center;
+    align-items: center;
+    opacity: .8;
+}
+
+.form{
+    background-color: #fff;
+    padding: 10px;   
+}
+
+.tab-form{
+    background-color: #fff;
+    display: none;
+    padding: 30px 20px 20px; 
+}
+
+.tab-form.active,
+#tab-1:checked ~ #form-1,
+#tab-2:checked ~ #form-2
+{
+    display: block;
+}
+
+.form a{
+    text-decoration: none;
+    transition: .5s;
+    color: #298cad;
+}
+
+.form a:hover{
+    color: #36d2ff;
+}
+
+.form ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.form input{
+    display: block;
+    width: 100%;
+}
+
+label.tab{
+    color: #333;
+    font-weight: 700;
+    padding: 15px;
+    display: inline-block;
+    border-radius: 3px 3px 0 0;
+    margin-bottom: 0px;
+    cursor: pointer;
+}
+
+label.tab.active, 
+input[name="tabs"]:checked + label{
+    background-color: #fff;
+    color: red;
+}
+
+input[name="tabs"]{
+    display: none;
+}
+
+/*Иконки во вкладках*/
+
+.tab::before{
+    content: '\f090';
+    font-family: 'FontAwesome', sans-serif;
+    font-size: 24px;
+    margin-right: 11px;
+    font-weight: normal;
+}
+
+.tab[for*='2']::before{
+    content: '\f234';
+    font-family: 'FontAwesome', sans-serif
+}
+
+/*формы*/
+
+
+::-webkit-input-placeholder{
+    color: #c4c9c9;
+}
+::-moz-placeholder{
+    color: #298cad;
+}
+
+:-moz-placeholder{
+    color: #298cad;
+}
+
+:-ms-input-placeholder{
+    color: #295cad;
+}
+
+.del{
+    display: none;
+}
+
+
+
+.social{
+    display: flex;
+    justify-content: space-between;
+    font-size: 24px;
+}
+
+.social a{
+    display: block;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    position: relative;
+}
+
+.social li a::before,
+.social li a::after{
+    content: '';
+    position: absolute;
+    background: #2fbae1;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    transition: transform .5s;
+    transform: scaleX(0);
+}
+.social li a::before{
+    transform-origin: right;
+}
+.social li a:hover::before{
+    transform: scale(1);
+    transform-origin: left;
+}
+
+.social li a::after{
+    transform-origin: left;
+}
+
+.social li a:hover::after{
+    transform: scale(1);
+    transform-origin: right;
+}
+
+
+.social li a div::before,
+.social li a div::after{
+    content: '';
+    position: absolute;
+    background: #2fbae1;
+    width: 1px;
+    height: 100%;
+    transition: transform .5s;
+    transform: scaleY(0);
+}
+
+
+.social li a div::before{
+    left: 0;
+    transform-origin: bottom;
+}
+
+.social li a div::after{
+    right: 0;
+    transform-origin: top;
+}
+
+.social li a:hover div::before{
+    transform: scaleY(1);
+    transform-origin: top;
+}
+
+.social li a:hover div::after{
+    transform: scaleY(1);
+    transform-origin: bottom;
+}
+
+.social + a{
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+    font-size: 12px;
+}
+
+.box-input{
+    position: relative;
+}   
+
+.box-input input{
+    border: none;
+    border-bottom: 2 px solid #e9eaea;
+    padding:  10px 0;
+}
+
+.box-input label{
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 10px;
+    color: #c4c9c9;
+    transition: .5s;
+    pointer-events: none;
+}
+
+.box-input input:focus ~ label,
+.box-input input:valid ~ label{
+    top: -30px;
+    font-size: 12px;
+    color: #33d3fe;
+}
+
+.input{
+    font-size: 16px;
+    border: 2px solid #e9eaea;
+    padding: 12px 14px;
+    box-sizing: border-box;
+    margin-bottom: 22px;
+    color: #1e8da6;
+    outline: none;
+}
+
+/*эффект кнопки*/
+
+a.button{
+    background: #295cad;
+    color: #fff;
+    font-size: 18px;
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    line-height: 46px;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    border-bottom: 4px solid #36d2ff
+}
+
+a.button:hover{
+    color: #fff;
+}
+
+
+.button::before, .button::after{
+    content: '';
+    display: block;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background: #27bfdc;
+    left: -100%;
+    transition: .3s ease;
+    z-index: -1;
+
+}
+
+.button::after{
+    background: #36d2ff;
+    left: 0;
+    top: 100%;
+    transition-delay: .2s
+}
+.button:hover::before{
+    left: 0;
+}
+
+.button:hover::after{
+    top: 0;
+}
+
+/*галка*/
+.recover{
+    margin-top: 15px;
+    font-size: 12px;
+}
+
+label[for='ckbox']{
+    cursor: pointer;
+    padding-left: 35px;
+    width: 260px;
+    display: block;
+    position: relative;
+    top: 5px;
+}
+
+#ckbox{
+    display: none;
+}
+
+label[for="ckbox"]::before{
+    content: '';
+    position: absolute;
+    border: 2px solid #c4c9c9;
+    width: 18px;
+    height: 18px;
+    top: 0px;
+    left: 0;
+    border-radius: 3px;
+    transition: .2s
+}
+
+#ckbox:checked + label::before{
+    border-top: 2px solid transparent;
+    border-left: 2px solid transparent;
+    border-right: 2px solid #408cc2;
+    border-bottom: 2px solid #408cc2;
+    transform: rotate(40deg);
+    width: 12px;
+    height: 22px;
+    transform-origin: 100% 100%;
+    top: -5px;
+    left: 0px;
+}
+
+
